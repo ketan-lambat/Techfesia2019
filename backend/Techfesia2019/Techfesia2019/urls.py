@@ -26,5 +26,5 @@ urlpatterns = [
     path('auth/', include("registration.urls")),
     path('users/', include("accounts.urls")),
     path('rest/', include('rest_framework.urls', namespace='rest_framework')),
-    path('base_test_email/' ,include("base.urls")),
+    path('base_test_email/', include('base.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
