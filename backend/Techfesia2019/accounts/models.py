@@ -7,10 +7,14 @@ from registration.models import User
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(to=User, on_delete=models.CASCADE)
+    user = models.OneToOneField(to=User, on_delete=models.CASCADE, related_name='profile')
     profile_pic = models.URLField()
     phone_number = models.CharField(max_length=13, validators=[MinLengthValidator(13)])
     college_name = models.CharField(max_length=150)
+
+    @property
+    def get_user_username(self):
+        return self.user.username
 
 
 class ProfileParticipant(models.Model):
